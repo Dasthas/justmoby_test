@@ -27,7 +27,7 @@ MonoBehaviour:
     - rid: 4989921758959894539
       type: {class: InputSchemeService, ns: Services.Input.Scheme, asm: Assembly-CSharp}
       data:
-        _defaultScheme: 1
+        _defaultScheme: 0
     - rid: 4989921758959894540
       type: {class: CameraRotationService, ns: Services.Controls.CameraRotation, asm: Assembly-CSharp}
       data:
@@ -42,13 +42,10 @@ MonoBehaviour:
         _enemiesLayerMask:
           serializedVersion: 2
           m_Bits: 64
-        _groundLayerMask:
-          serializedVersion: 2
-          m_Bits: 0
     - rid: 4989921758959894543
       type: {class: PlayerMovingService, ns: Services.Controls.Move, asm: Assembly-CSharp}
       data:
-        _playerSpeed: 3
+        _defaultSpeed: 3
     - rid: 4989921758959894544
       type: {class: EnemyService, ns: Services.Enemy, asm: Assembly-CSharp}
       data:
