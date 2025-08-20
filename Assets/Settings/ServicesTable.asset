@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ServicesTable
   m_EditorClassIdentifier: 
   _services:
+  - rid: 4989921758959894548
   - rid: 4989921758959894545
   - rid: 4989921758959894544
   - rid: 4989921758959894539
@@ -37,6 +38,7 @@ MonoBehaviour:
     - rid: 4989921758959894541
       type: {class: PlayerShootingService, ns: Services.Controls.Shooting, asm: Assembly-CSharp}
       data:
+        _defaultDamage: 10
         _enemiesLayerMask:
           serializedVersion: 2
           m_Bits: 64
@@ -64,3 +66,7 @@ MonoBehaviour:
     - rid: 4989921758959894546
       type: {class: MockLocalizationService, ns: Services.Localization, asm: Assembly-CSharp}
       data: 
+    - rid: 4989921758959894548
+      type: {class: CharacteristicsService, ns: Services.Characteristics, asm: Assembly-CSharp}
+      data:
+        _characteristicsTable: {fileID: 11400000, guid: 9e15433ecc5045a49a249cee132a177d, type: 2}
