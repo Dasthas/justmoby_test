@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using System.Linq;
+using Services.Base;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
@@ -13,12 +13,22 @@ namespace Services
         [ValidateInput(nameof(ValidateServices))]
         private IService[] _services = new IService[0];
 
-        public void Configure(IContainerBuilder builder)
+        public void RegisterServices(IContainerBuilder builder)
         {
-            foreach (var service in _services)
+            var runtimeServices = new IService[_services.Length];
+            for (var i = 0; i < _services.Length; i++)
             {
-                service.RegisterSelf(builder);
+                var service = _services[i];
+                runtimeServices[i] = service.RegisterAndGetInstance(builder);
             }
+
+            builder.RegisterBuildCallback(container =>
+            {
+                foreach (var service in runtimeServices)
+                {
+                    container.Inject(service);
+                }
+            });
         }
 
         private bool ValidateServices(IService[] services, out string message)

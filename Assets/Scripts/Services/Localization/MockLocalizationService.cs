@@ -1,10 +1,11 @@
 using System;
+using Services.Base;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Services
+namespace Services.Localization
 {
     [Serializable]
     [InfoBox("Return key instead of localized string")]
@@ -17,11 +18,13 @@ namespace Services
 
         #region Service
 
-        public override void RegisterSelf(IContainerBuilder builder)
+        public override Service RegisterAndGetInstance(IContainerBuilder builder)
         {
-            builder.RegisterInstance<ILocalizationService>(this)
+            var instance = Clone() as MockLocalizationService;
+            builder.RegisterInstance<ILocalizationService>(instance)
                 .As<IInitializable>()
                 .As<IDisposable>();
+            return instance;
         }
 
         protected override void OnInitialize()

@@ -1,11 +1,10 @@
 using System;
-using Components;
-using UniRx;
+using Components.Characters;
 
-namespace Services
+namespace Services.Enemy
 {
     public interface IEnemyService
     {
-        IObservable<DeathData> EveryEnemyDeath { get; }
+        IObservable<DeathData> OnAnyEnemyDeath { get; }
     }
 }

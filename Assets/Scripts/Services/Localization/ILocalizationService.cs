@@ -1,4 +1,4 @@
-namespace Services
+namespace Services.Localization
 {
     public interface ILocalizationService
     {
