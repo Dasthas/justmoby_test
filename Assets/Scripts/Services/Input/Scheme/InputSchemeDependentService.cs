@@ -25,7 +25,6 @@ namespace Services.Input.Scheme
 
         protected virtual void OnChangeScheme(InputSchemeType inputSchemeType)
         {
-            Debug.Log($"OnChangeScheme: {inputSchemeType}");
         }
     }
 }
