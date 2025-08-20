@@ -1,7 +1,7 @@
 using UniRx;
 using UnityEngine;
 
-namespace Components
+namespace Components.Characters
 {
     public class HealthController : MonoBehaviour, IHealthController
     {

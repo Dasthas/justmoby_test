@@ -1,6 +1,6 @@
 using UniRx;
 
-namespace Components
+namespace Components.Characters
 {
     public interface IHealthController
     {
