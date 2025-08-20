@@ -1,18 +1,21 @@
 using System;
+using Services.Input.Scheme;
+using Unity.VisualScripting;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
+using IInitializable = VContainer.Unity.IInitializable;
 
-namespace Services
+namespace Services.Base
 {
     [Serializable]
     public abstract class Service : IService, IInitializable, ITickable, IDisposable
     {
-        public abstract void RegisterSelf(IContainerBuilder builder);
+        public abstract Service RegisterAndGetInstance(IContainerBuilder builder);
         
+        protected object Clone() => this.CloneViaSerialization();
         public void Initialize()
         {
-            Debug.Log("Initialize");
             OnInitialize();
         }
 
@@ -29,17 +32,14 @@ namespace Services
 
         protected virtual void OnInitialize()
         {
-            Debug.Log("OnInitialize");
         }
 
         protected virtual void OnDispose()
         {
-            Debug.Log("OnDispose");
         }
 
         protected virtual void OnTick()
         {
-            Debug.Log("OnTick");
         }
     }
 }

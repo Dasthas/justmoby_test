@@ -1,10 +1,9 @@
-using System;
 using VContainer;
 
-namespace Services
+namespace Services.Base
 {
     public interface IService
     {
-        public void RegisterSelf(IContainerBuilder builder);
+        public Service RegisterAndGetInstance(IContainerBuilder builder);
     }
 }
