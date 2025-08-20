@@ -1,4 +1,5 @@
 using Services.Input.Scheme;
+using UI.Input.Characteristics;
 using UniRx;
 using UnityEngine;
 using VContainer;
@@ -12,6 +13,17 @@ namespace UI.Input
         [SerializeField] private MoveJoystickView _moveJoystickView;
         [SerializeField] private DragScreenView _dragScreenView;
         [SerializeField] private ShootButtonView _shootButtonView;
+        [SerializeField] private ShowCharacteristicsButtonView _showCharacteristicsButtonView;
+        [SerializeField] private ChangeInputSchemeButtonView _changeInputSchemeButtonView;
+        [SerializeField] private GameHud _gameHud;
+        [SerializeField] private CharacteristicsScreen _characteristicsScreen;
+
+        private void Start()
+        {
+            _showCharacteristicsButtonView.Button.OnClickAsObservable()
+                .Subscribe(_ => _characteristicsScreen.Open())
+                .AddTo(this);
+        }
 
         public void Register(IContainerBuilder builder)
         {
@@ -24,8 +36,11 @@ namespace UI.Input
                     .AddTo(gameObject);
 
                 OnInputSchemeChanged(_inputSchemeService.CurrentScheme);
+                container.Inject(_characteristicsScreen);
             });
 
+            builder.RegisterInstance(_gameHud);
+            builder.RegisterInstance(_changeInputSchemeButtonView);
             builder.RegisterInstance(_moveJoystickView);
             builder.RegisterInstance(_dragScreenView);
             builder.RegisterInstance(_shootButtonView);

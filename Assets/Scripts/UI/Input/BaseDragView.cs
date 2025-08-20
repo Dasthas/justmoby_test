@@ -102,6 +102,6 @@ namespace UI.Input
 
         private void OnDragContinue(Vector2 drag) => _inputView.MoveJoystickView?.MoveStick(drag);
 
-        private void OnDragFinished(PointerEventData eventData) => _inputView.MoveJoystickView?.DisableStick();
+        private void OnDragFinished(PointerEventData eventData) => _inputView.MoveJoystickView?.ResetStick();
     }
 }

@@ -28,9 +28,8 @@ namespace UI.Input.Joysticks
             _stickTransform.anchoredPosition = stickPosition;
         }
 
-        public void DisableStick()
+        public void ResetStick()
         {
-            _stickContainer.gameObject.SetActive(false);
             _stickTransform.anchoredPosition = Vector2.zero;
         }
     }
