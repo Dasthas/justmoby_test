@@ -18,13 +18,15 @@ namespace Components.Characters
         public Transform WeaponTransform => _weaponTransform;
 
         private ReactiveCommand<DeathData> _onDead = new ReactiveCommand<DeathData>();
-        private ReactiveCommand<TakeDamageData> _onTakeDamage = new ReactiveCommand<TakeDamageData>();
+        private ReactiveCommand<HealthChangedData> _onHealthChanged = new ReactiveCommand<HealthChangedData>();
         public IObservable<DeathData> OnDead => _onDead;
-        public IObservable<TakeDamageData> OnTakeDamage => _onTakeDamage;
+        public IObservable<HealthChangedData> OnHealthChanged => _onHealthChanged;
+
+        public HealthController HealthController => _healthController;
 
         public void Initialize(float maxHp)
         {
-            _healthController.Initialize(maxHp, _onDead, _onTakeDamage);
+            HealthController.Initialize(maxHp, _onDead, _onHealthChanged);
         }
 
         public void LookToDirectionSmooth(Vector3 direction, float speed)
@@ -34,6 +36,10 @@ namespace Components.Characters
 
         public void Move(Vector3 velocity)
         {
+            if (velocity == Vector3.zero)
+            {
+                return;
+            }
             transform.position += velocity;
             _bodyTransform.forward = velocity.normalized;
         }

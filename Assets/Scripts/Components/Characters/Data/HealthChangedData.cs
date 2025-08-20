@@ -1,6 +1,6 @@
 namespace Components.Characters
 {
-    public struct TakeDamageData
+    public struct HealthChangedData
     {
         public float CurrentHealth;
         public float MaxHealth;
