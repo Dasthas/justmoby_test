@@ -1,4 +1,4 @@
-namespace Components
+namespace Components.Characters
 {
     public struct TakeDamageData
     {

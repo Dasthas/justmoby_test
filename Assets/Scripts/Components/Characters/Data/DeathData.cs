@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Components
+namespace Components.Characters
 {
     public struct DeathData
     {

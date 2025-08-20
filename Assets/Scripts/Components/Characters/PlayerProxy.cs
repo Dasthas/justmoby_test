@@ -1,9 +1,8 @@
 using UnityEngine;
 
-namespace Components
+namespace Components.Characters
 {
     public class PlayerProxy : CharacterProxy
     {
-        
     }
 }
