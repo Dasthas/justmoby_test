@@ -1,6 +1,6 @@
 using System;
 
-namespace Services.Characteristics.Settings
+namespace Services.Characteristics.Settings.Data.Value
 {
     [Serializable]
     public struct CharacteristicValue

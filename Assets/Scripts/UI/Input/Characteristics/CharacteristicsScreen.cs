@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Services.Characteristics;
 using Services.Characteristics.Settings;
+using Services.Characteristics.Settings.Data;
 using Services.Localization;
 using TMPro;
 using UniRx;

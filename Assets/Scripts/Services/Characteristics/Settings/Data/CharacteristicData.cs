@@ -1,8 +1,8 @@
 using System;
+using Services.Characteristics.Settings.Data.Value;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Services.Characteristics.Settings
+namespace Services.Characteristics.Settings.Data
 {
     [Serializable]
     public struct CharacteristicData

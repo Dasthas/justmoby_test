@@ -1,5 +1,6 @@
 using System;
 using Services.Characteristics.Settings;
+using Services.Characteristics.Settings.Data;
 
 namespace Services.Characteristics
 {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Services.Base;
 using Services.Characteristics.Settings;
+using Services.Characteristics.Settings.Data;
+using Services.Characteristics.Settings.Data.Value;
 using UniRx;
 using UnityEngine;
 using VContainer;

@@ -5,6 +5,7 @@ using Components.Scene;
 using Services.Base;
 using Services.Characteristics;
 using Services.Characteristics.Settings;
+using Services.Characteristics.Settings.Data;
 using Sirenix.OdinInspector;
 using UI.Input;
 using UniRx;

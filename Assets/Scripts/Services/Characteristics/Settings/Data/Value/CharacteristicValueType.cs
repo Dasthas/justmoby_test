@@ -1,4 +1,4 @@
-namespace Services.Characteristics.Settings
+namespace Services.Characteristics.Settings.Data.Value
 {
     public enum CharacteristicValueType
     {

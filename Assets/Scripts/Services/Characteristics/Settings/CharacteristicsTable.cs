@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Services.Characteristics.Settings.Data;
+using Services.Characteristics.Settings.Data.Value;
 using UnityEngine;
 
 namespace Services.Characteristics.Settings

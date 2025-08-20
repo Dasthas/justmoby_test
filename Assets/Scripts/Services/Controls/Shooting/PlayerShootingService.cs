@@ -4,6 +4,7 @@ using Components.Characters;
 using Services.Base;
 using Services.Characteristics;
 using Services.Characteristics.Settings;
+using Services.Characteristics.Settings.Data;
 using Services.Enemy;
 using Services.Input.Scheme;
 using Services.Player;
@@ -20,7 +21,6 @@ namespace Services.Controls.Shooting
     {
         [SerializeField] private float _defaultDamage = 10;
         [SerializeField] private LayerMask _enemiesLayerMask;
-        [SerializeField] private LayerMask _groundLayerMask;
         [Inject] private ICameraController _cameraController;
         [Inject] private IEnemyService _enemyService;
         [Inject] private ICharacteristicsService _characteristicsService;
