@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Components
+namespace Components.Scene
 {
     public interface ISceneEnvironment
     {

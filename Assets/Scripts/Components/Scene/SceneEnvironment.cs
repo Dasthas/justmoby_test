@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Components
+namespace Components.Scene
 {
     public class SceneEnvironment: MonoBehaviour, ISceneEnvironment
     {
         [SerializeField] private Transform _dynamicObjectsParent;
         [SerializeField]
         private List<Transform> _spawnPoints = new List<Transform>();
-        
+        [SerializeField]
         private Transform _playerSpawnPoint;
 
         public Transform DynamicObjectsParent => _dynamicObjectsParent;
@@ -25,7 +25,7 @@ namespace Components
             var randomIndex = Random.Range(0, _spawnPoints.Count);
             if (_spawnPoints[randomIndex] == null)
             {
-                Debug.LogError("Spawn Point = null!");
+                Debug.LogError("Spawn Point = null");
                 return Vector3.zero;
             }
             return _spawnPoints[randomIndex].position;
