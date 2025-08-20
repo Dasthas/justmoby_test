@@ -29,12 +29,12 @@ namespace Services.Controls.CameraRotation
             var camTransform = _cameraController.VirtualCamera.transform;
             camTransform.RotateAround(playerPos, -Vector3.up, delta.x);
             if (Mathf.Abs(camTransform.forward.y) < 0.9f || Mathf.Sign(delta.y) == Mathf.Sign(camTransform.forward.y))
+            {
                 camTransform.RotateAround(Vector3.zero, camTransform.right, delta.y);
+            }
 
             // camTransform.Rotate(-camTransform.up * delta.x * _sensitivity);
             // camTransform.Rotate(camTransform.right * delta.y * _sensitivity);
-
-            Debug.Log("Rotate Player");
         }
 
         private void RefreshScheme()
@@ -81,7 +81,7 @@ namespace Services.Controls.CameraRotation
 
             drag.x = -drag.x;
             drag.y = -drag.y;
-            
+
             if (_invertYAxis)
             {
                 drag.y *= -1;
@@ -92,6 +92,7 @@ namespace Services.Controls.CameraRotation
 
         protected override void OnChangeScheme(InputSchemeType inputSchemeType)
         {
+            base.OnChangeScheme(inputSchemeType);
             RefreshScheme();
         }
 
@@ -109,11 +110,14 @@ namespace Services.Controls.CameraRotation
 
         protected override void OnInitialize()
         {
+            base.OnInitialize();
             RefreshScheme();
         }
 
         protected override void OnDispose()
         {
+            base.OnDispose();
+            _schemeUpdateSubscription.Dispose();
         }
 
         protected override void OnTick()

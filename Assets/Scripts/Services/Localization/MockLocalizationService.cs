@@ -29,12 +29,10 @@ namespace Services.Localization
 
         protected override void OnInitialize()
         {
-            Debug.Log("OnInitialize MockLocalizationService");
         }
 
         protected override void OnDispose()
         {
-            Debug.Log("OnDispose MockLocalizationService");
         }
 
         #endregion

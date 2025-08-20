@@ -2,6 +2,9 @@ using System;
 using Components;
 using Components.Characters;
 using Services.Base;
+using Services.Characteristics;
+using Services.Characteristics.Settings;
+using Services.Enemy;
 using Services.Input.Scheme;
 using Services.Player;
 using UI.Input;
@@ -15,13 +18,17 @@ namespace Services.Controls.Shooting
     [Serializable]
     public class PlayerShootingService : InputSchemeDependentService, IPlayerShootingService
     {
+        [SerializeField] private float _defaultDamage = 10;
         [SerializeField] private LayerMask _enemiesLayerMask;
         [SerializeField] private LayerMask _groundLayerMask;
         [Inject] private ICameraController _cameraController;
+        [Inject] private IEnemyService _enemyService;
+        [Inject] private ICharacteristicsService _characteristicsService;
         [Inject] private IPlayerService _playerService;
         [Inject] private ShootButtonView _shootButtonView;
 
         private IDisposable _schemeUpdateSubscription = Disposable.Empty;
+        private IDisposable _enemyKilledSubscription = Disposable.Empty;
 
         private RaycastHit[] _hits = new RaycastHit[15];
 
@@ -34,7 +41,6 @@ namespace Services.Controls.Shooting
             var hitsCount = Physics.RaycastNonAlloc(ray, _hits, float.PositiveInfinity,
                 _enemiesLayerMask);
 
-            var damage = 15;
             var hitPosition = Vector3.zero;
             for (int i = 0; i < hitsCount; i++)
             {
@@ -42,8 +48,7 @@ namespace Services.Controls.Shooting
                 hitPosition = hit.point;
                 if (hit.transform.TryGetComponent<IHealthController>(out var healthController))
                 {
-                    Debug.Log("hit enemy");
-                    healthController.ProcessDamage(damage);
+                    healthController.ProcessDamage(GetPlayerDamage());
                     break;
                 }
             }
@@ -60,6 +65,11 @@ namespace Services.Controls.Shooting
 
             _playerService.PlayerProxy.LookToDirectionSmooth(directionToTarget, 1);
             _playerService.PlayerProxy.ShowShootVfx();
+        }
+
+        private float GetPlayerDamage()
+        {
+            return _characteristicsService.CalculateUpgradedValue(_defaultDamage, CharacteristicType.Damage);
         }
 
         private void RefreshScheme()
@@ -87,6 +97,11 @@ namespace Services.Controls.Shooting
             }
         }
 
+        private void OnEnemyKilled(DeathData deathData)
+        {
+            _characteristicsService.AddAvailablePoints(1);
+        }
+
         protected override void OnChangeScheme(InputSchemeType inputSchemeType)
         {
             RefreshScheme();
@@ -105,13 +120,18 @@ namespace Services.Controls.Shooting
 
         protected override void OnInitialize()
         {
+            base.OnInitialize();
             RefreshScheme();
-            Debug.Log("OnInitialize PlayerService");
+            
+            _enemyKilledSubscription = _enemyService.OnAnyEnemyDeath
+                .Subscribe(OnEnemyKilled);
         }
 
         protected override void OnDispose()
         {
-            Debug.Log("OnDispose PlayerService");
+            base.OnDispose();
+            _schemeUpdateSubscription.Dispose();
+            _enemyKilledSubscription.Dispose();
         }
 
         #endregion
