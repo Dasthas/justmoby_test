@@ -1,5 +1,4 @@
 using System;
-using Services.Input.Scheme;
 using Unity.VisualScripting;
 using UnityEngine;
 using VContainer;
@@ -12,9 +11,10 @@ namespace Services.Base
     public abstract class Service : IService, IInitializable, ITickable, IDisposable
     {
         public abstract Service RegisterAndGetInstance(IContainerBuilder builder);
-        
+
         protected object Clone() => this.CloneViaSerialization();
-        public void Initialize()
+
+        void IInitializable.Initialize()
         {
             OnInitialize();
         }
@@ -25,7 +25,7 @@ namespace Services.Base
             OnDispose();
         }
 
-        public void Tick()
+        void ITickable.Tick()
         {
             OnTick();
         }

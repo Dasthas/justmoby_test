@@ -1,6 +1,7 @@
 using System.Linq;
 using Services.Base;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 using VContainer;
 
@@ -21,7 +22,13 @@ namespace Services
                 var service = _services[i];
                 runtimeServices[i] = service.RegisterAndGetInstance(builder);
             }
-
+            builder.RegisterDisposeCallback(container =>
+            {
+                foreach (var service in runtimeServices)
+                {
+                    service.Dispose();
+                }
+            });
             builder.RegisterBuildCallback(container =>
             {
                 foreach (var service in runtimeServices)

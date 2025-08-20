@@ -2,7 +2,6 @@ using System;
 using Components;
 using Services.Base;
 using Services.Characteristics;
-using Services.Characteristics.Settings;
 using Services.Characteristics.Settings.Data;
 using Services.Input.Scheme;
 using Services.Player;
@@ -18,7 +17,7 @@ namespace Services.Controls.Move
     public class PlayerMovingService : InputSchemeDependentService, IPlayerMovingService
     {
         [SerializeField] private float _defaultSpeed = 3.0f;
-        
+
         [Inject] private ICameraController _cameraController;
         [Inject] private IPlayerService _playerService;
         [Inject] private ICharacteristicsService _characteristicsService;
