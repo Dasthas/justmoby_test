@@ -1,4 +1,4 @@
-namespace UI.Input
+namespace UI
 {
     public class MoveJoystickView : BaseDragView
     {

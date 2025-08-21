@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Input
+namespace UI
 {
     public class GameHud : MonoBehaviour
     {

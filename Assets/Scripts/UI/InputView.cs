@@ -1,9 +1,8 @@
-using JetBrains.Annotations;
-using UI.Input.Joysticks;
+using UI.Joysticks;
 using UniRx.Triggers;
 using UnityEngine;
 
-namespace UI.Input
+namespace UI
 {
     public class InputView : MonoBehaviour
     {

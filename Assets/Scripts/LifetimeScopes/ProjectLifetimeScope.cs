@@ -1,7 +1,7 @@
 using Components;
 using Components.Scene;
 using Services;
-using UI.Input;
+using UI;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;

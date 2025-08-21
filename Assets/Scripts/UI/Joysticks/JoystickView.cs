@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UI.Input.Joysticks
+namespace UI.Joysticks
 {
     public class JoystickView : MonoBehaviour
     {

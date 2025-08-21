@@ -7,7 +7,7 @@ using Services.Characteristics;
 using Services.Characteristics.Settings;
 using Services.Characteristics.Settings.Data;
 using Sirenix.OdinInspector;
-using UI.Input;
+using UI;
 using UniRx;
 using UnityEngine;
 using VContainer;

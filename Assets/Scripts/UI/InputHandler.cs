@@ -1,10 +1,11 @@
 using Services.Input.Scheme;
-using UI.Input.Characteristics;
+using UI.Buttons;
+using UI.Characteristics;
 using UniRx;
 using UnityEngine;
 using VContainer;
 
-namespace UI.Input
+namespace UI
 {
     public class InputHandler : MonoBehaviour
     {

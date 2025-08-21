@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace UI.Input
+namespace UI.Buttons
 {
     public class ChangeInputSchemeButtonView : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Input
+namespace UI.Buttons
 {
     public class ShootButtonView : MonoBehaviour
     {

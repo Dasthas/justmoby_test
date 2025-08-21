@@ -3,7 +3,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace UI.Input
+namespace UI
 {
     public abstract class BaseDragView : MonoBehaviour
     {

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Services.Characteristics;
-using Services.Characteristics.Settings;
 using Services.Characteristics.Settings.Data;
 using Services.Localization;
 using TMPro;
@@ -9,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
 
-namespace UI.Input.Characteristics
+namespace UI.Characteristics
 {
     public class CharacteristicsScreen : MonoBehaviour
     {

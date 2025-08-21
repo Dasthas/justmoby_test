@@ -8,7 +8,7 @@ using Services.Characteristics.Settings.Data;
 using Services.Enemy;
 using Services.Input.Scheme;
 using Services.Player;
-using UI.Input;
+using UI.Buttons;
 using UniRx;
 using UnityEngine;
 using VContainer;

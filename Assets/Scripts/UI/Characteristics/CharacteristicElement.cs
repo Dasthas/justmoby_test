@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Input.Characteristics
+namespace UI.Characteristics
 {
     public class CharacteristicElement : MonoBehaviour
     {

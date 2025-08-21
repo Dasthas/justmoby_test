@@ -5,7 +5,7 @@ using Services.Characteristics;
 using Services.Characteristics.Settings.Data;
 using Services.Input.Scheme;
 using Services.Player;
-using UI.Input;
+using UI;
 using UniRx;
 using UnityEngine;
 using VContainer;
